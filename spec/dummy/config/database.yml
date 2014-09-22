@@ -1,0 +1,21 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: schemer_dev
+  pool: 5
+  host: localhost
+  username: postgres
+  password: postgres
+  port: 5432
+  min_messages: warning
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: schemer_test
+  pool: 5
+  host: localhost
+  username: postgres
+  password: postgres
+  port: 5432
+  min_messages: warning

@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    schemer_rails (0.0.1)
+    schemer_rails (0.0.2)
       active_model_serializers
       cocoon
       jquery-rails

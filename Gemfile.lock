@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    schemer (0.0.1)
+    schemer_rails (0.0.1)
       active_model_serializers
       cocoon
       jquery-rails
@@ -143,5 +143,5 @@ DEPENDENCIES
   pg
   pry
   rspec-rails
-  schemer!
+  schemer_rails!
   shoulda-matchers

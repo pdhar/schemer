@@ -5,7 +5,7 @@ require "schemer/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.name        = "schemer"
+  s.name        = "schemer_rails"
   s.version     = Schemer::VERSION
   s.authors     = ["Pranav Dhar"]
   s.email       = ["pranav.dhar2@gmail.com"]

@@ -1,3 +1,8 @@
+require 'protected_attributes'
+require 'cocoon'
+require 'jquery-rails'
+require 'active_model_serializers'
+
 module Schemer
   class Engine < ::Rails::Engine
     isolate_namespace Schemer

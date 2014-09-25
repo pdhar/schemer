@@ -2,6 +2,7 @@ PATH
   remote: .
   specs:
     schemer (0.0.1)
+      active_model_serializers
       cocoon
       jquery-rails
       protected_attributes
@@ -23,6 +24,8 @@ GEM
       activesupport (= 4.1.6)
       builder (~> 3.1)
       erubis (~> 2.7.0)
+    active_model_serializers (0.8.1)
+      activemodel (>= 3.0)
     activemodel (4.1.6)
       activesupport (= 4.1.6)
       builder (~> 3.1)
@@ -135,12 +138,9 @@ PLATFORMS
 
 DEPENDENCIES
   capybara
-  cocoon
   database_cleaner
   factory_girl_rails
-  jquery-rails
   pg
-  protected_attributes
   pry
   rspec-rails
   schemer!

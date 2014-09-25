@@ -46,8 +46,7 @@ describe User do
 			answer = surveyor.answers.create(option: option, question: option.question)
 			expect(answer).to be_present
 
-			test = ::Schemer::Survey.joins("LEFT JOIN schemer_surveyors ON schemer_surveyors.survey_id = schemer_surveys.id").where("(schemer_surveyors.surveyable_id IS NULL) OR (schemer_surveyors.surveyable_id != ? AND schemer_surveyors.surveyable_type = ?)", user.id, user.class.name) 
-			expect(test.size).to eq(2)
+			expect(user.list_incomplete_surveys.size).to eq(2)
 			
   	end
   end

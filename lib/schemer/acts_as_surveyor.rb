@@ -25,7 +25,7 @@ module Schemer
       end
 
       def list_incomplete_surveys
-        ::Schemer::Surveyor.where.not(surveyable: self)
+        ::Schemer::Survey.joins("LEFT JOIN schemer_surveyors ON schemer_surveyors.survey_id = schemer_surveys.id").where("(schemer_surveyors.surveyable_id IS NULL) OR (schemer_surveyors.surveyable_id != ? AND schemer_surveyors.surveyable_type = ?)", self.id, self.class.name) 
       end
 
       def list_all_surveys_by_name

@@ -11,16 +11,53 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140922114934) do
+ActiveRecord::Schema.define(version: 20140925070034) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "schemer_answers", force: true do |t|
+    t.integer  "surveyor_id"
+    t.integer  "question_id"
+    t.integer  "option_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "schemer_options", force: true do |t|
+    t.text     "title"
+    t.integer  "question_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "schemer_questions", force: true do |t|
+    t.text     "title"
+    t.integer  "survey_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "schemer_surveyors", force: true do |t|
+    t.integer  "survey_id"
+    t.integer  "surveyable_id"
+    t.string   "surveyable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "schemer_surveys", force: true do |t|
     t.string   "title"
     t.text     "description"
     t.boolean  "is_started"
     t.boolean  "is_complete"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", force: true do |t|
+    t.string   "name"
+    t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

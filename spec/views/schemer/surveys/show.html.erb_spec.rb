@@ -1,8 +1,10 @@
 require 'spec_helper'
 
-describe "surveys/show" do
+describe "schemer/surveys/show" do
+
   before(:each) do
-    @survey = assign(:survey, stub_model(Survey,
+
+    @survey = assign(:survey, stub_model(::Schemer::Survey,
       :title => "Title",
       :description => "MyText",
       :is_started => false,

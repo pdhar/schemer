@@ -56,7 +56,7 @@ module Schemer
 
       # Only allow a trusted parameter "white list" through.
       def survey_params
-        params.require(:survey).permit(:title, :description, :is_started, :is_complete)
+        params.require(:survey).permit(:title, :description, :is_started, :is_complete, questions_attributes: [:id, :title, :_destroy, options_attributes: [:id, :title, :_destroy]])
       end
   end
 end

@@ -13,6 +13,8 @@ gemspec
 # To use debugger
 # gem 'debugger'
 gem 'protected_attributes'
-gem 'pry'
-gem 'shoulda-matchers', require: false
-gem 'database_cleaner'
+# gem 'pry'
+gem "cocoon"
+gem 'jquery-rails'
+# gem 'shoulda-matchers', require: false
+# gem 'database_cleaner'

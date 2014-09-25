@@ -24,6 +24,10 @@ module Schemer
         ::Schemer::Survey.all
       end
 
+      def list_incomplete_surveys
+        ::Schemer::Surveyor.where.not(surveyable: self)
+      end
+
       def list_all_surveys_by_name
         list_all_surveys.map(&:name)
       end

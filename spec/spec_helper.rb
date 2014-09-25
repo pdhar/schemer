@@ -6,6 +6,7 @@ require 'rspec/autorun'
 require 'factory_girl_rails'
 require 'pry'
 require 'shoulda-matchers'
+require 'protected_attributes'
 
 Rails.backtrace_cleaner.remove_silencers!
 

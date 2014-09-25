@@ -27,6 +27,15 @@
     <%= f.label :is_complete %><br>
     <%= f.check_box :is_complete %>
   </div>
+
+  <%= f.fields_for :questions do |question| %>
+    <%= render 'question_fields', :f => question %>
+  <% end %>
+
+  <div class="q">
+    <%= link_to_add_association 'add question', f, :questions %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

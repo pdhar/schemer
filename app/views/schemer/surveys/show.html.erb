@@ -10,15 +10,18 @@
   <%= @survey.description %>
 </p>
 
-<p>
-  <strong>Is started:</strong>
-  <%= @survey.is_started %>
-</p>
+<h3>Questions:</h3>
+<% @survey.questions.each_with_index do |question, index| %>
+	<p>
+		Question <%= index + 1 %>: <%= question.title %>
 
-<p>
-  <strong>Is complete:</strong>
-  <%= @survey.is_complete %>
-</p>
+		<% question.options.each_with_index do |option, index| %>
+			<p>
+				Option <%= index + 1 %>: <%= option.title %>
+			</p>
+		<% end %>
+	</p>
+<% end %>
 
 <%= link_to 'Edit', schemer.edit_survey_path(@survey) %> |
 <%= link_to 'Back', schemer.surveys_path %>

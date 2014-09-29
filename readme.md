@@ -1,4 +1,4 @@
-= Schemer
+# Schemer [![Build Status](https://travis-ci.org/pdhar/schemer.svg)](https://travis-ci.org/pdhar/schemer.svg)
 
 This project rocks and uses MIT-LICENSE.
 

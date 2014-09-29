@@ -2,8 +2,8 @@ require 'spec_helper'
 
 describe User do
   
-  let(:user) { FactoryGirl.create(:user) }
-  let(:user_2) { FactoryGirl.create(:user) }
+  let(:user) { User.create(name: "test", email: "test") }
+  let(:user_2) { User.create(name: "test", email: "test") }
 
   let(:options) { [
 										{ title: "a1"},

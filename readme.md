@@ -1,4 +1,5 @@
-# Schemer [![Build Status](https://travis-ci.org/pdhar/schemer.svg)](https://travis-ci.org/pdhar/schemer.svg)
+# Schemer [![Build Status](https://travis-ci.org/pdhar/schemer.svg)](https://travis-ci.org/pdhar/schemer.svg) 
+[![Gem Version](https://badge.fury.io/rb/schemer_rails.svg)](http://badge.fury.io/rb/schemer_rails)
 
 This project rocks and uses MIT-LICENSE.
 

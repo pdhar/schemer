@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140925070034) do
+ActiveRecord::Schema.define(version: 20140929084627) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20140925070034) do
     t.string   "surveyable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "is_completed",    default: false
   end
 
   create_table "schemer_surveys", force: true do |t|

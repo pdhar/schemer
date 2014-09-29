@@ -25,7 +25,14 @@ module Schemer
       end
 
       def list_incomplete_surveys
-        ::Schemer::Survey.joins("LEFT JOIN schemer_surveyors ON schemer_surveyors.survey_id = schemer_surveys.id").where("(schemer_surveyors.surveyable_id IS NULL) OR (schemer_surveyors.surveyable_id != ? AND schemer_surveyors.surveyable_type = ?)", self.id, self.class.name) 
+        ::Schemer::Survey.
+          joins("LEFT JOIN schemer_surveyors ON schemer_surveyors.survey_id = schemer_surveys.id").
+          where(" (schemer_surveyors.surveyable_id IS NULL) 
+                    OR 
+                  (schemer_surveyors.surveyable_id != ? AND schemer_surveyors.surveyable_type = ?)
+                    OR
+                  (schemer_surveyors.surveyable_id = ? AND schemer_surveyors.surveyable_type = ? AND schemer_surveyors.is_completed != ?)  
+                ", id, self.class.name, id, self.class.name, true) 
       end
 
       def list_all_surveys_by_name
@@ -36,8 +43,38 @@ module Schemer
         survey.questions
       end
 
-      def mark_survey_question(question, option)
+      def start_or_complete_survey(survey)
+        if (surveyor = feedbacks.where(survey: survey).where(is_completed: false).first).present?
+          return surveyor
+        else
+          feedbacks.create(survey: survey)
+        end
+      end
+
+      def list_unanswered_questions(surveyor)
+
+        return  surveyor.
+                survey.
+                questions.
+                joins("LEFT JOIN schemer_answers ON schemer_questions.id = schemer_answers.question_id ").
+                where("schemer_answers.id IS NULL")
+
+      end
+
+      def mark_survey_question(surveyor, option)
         # create an answer record for surveyor record
+        answer = surveyor.answers.create(option: option, question: option.question)
+
+        questions = surveyor.survey.questions.map(&:id)
+        answers   = surveyor.answers.map(&:question_id)
+
+        # check if all question in the survey are answered
+        if (questions - answers).empty?
+          # mark surveyor record as completed
+          surveyor.update(is_completed: true)
+        end
+
+        return answer
       end
 
       def squawk
